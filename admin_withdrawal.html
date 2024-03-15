@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Withdrawals</title>
+</head>
+<body  style="background-color: goldenrod;">
+    <h1>Pending Withdrawals</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Withdrawal ID</th>
+                <th>User ID</th>
+                <th>Withdrawal Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for withdrawal in withdrawals %}
+            <tr>
+                <td>{{ withdrawal[0] }}</td>
+                <td>{{ withdrawal[1] }}</td>
+                <td>${{ withdrawal[2] }}</td>
+                <td>{{ withdrawal[3] }}</td>
+                <td><a href="/admin/process_withdrawal/{{ withdrawal[0] }}">Process</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
